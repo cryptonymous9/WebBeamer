@@ -18,7 +18,7 @@ The aim of this application is to provide an easy to use interface for making $\
 
 ### [1] 
 
-![interface_1](./support_files\interface_1.PNG)
+![interface_1](./support_files/interface_1.PNG)
 
 
 
