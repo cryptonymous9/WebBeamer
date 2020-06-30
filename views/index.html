@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="/public/style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script src="../public/js/form.js" type="text/javascript"></script>
+  <title >Webeamer</title>
+</head>
+
+
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <span class="navbar-brand mb-0 h1" style="color: bisque;">WebBeamer</span>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item ">
+        <a class="nav-link" href="/try" >Last Commited File</a>
+      </li>
+    </ul>
+
+    <span class="navbar-text" style="color: bisque;">
+      - Developed with &#10084; by <a href="http://cryptonymous9.github.io/" style="color:deepskyblue;"><b>Nidhin (cryptonymou9)</b> </a>
+    </span>
+  </nav>
+
+
+
+  <div class="first">
+    <form action="/new" target="_blank" method="POST">
+      <div class="form-group">
+          <label for="inputTitle">Working Directory</label>
+          <input type="text" class="form-control" id="inputDir" placeholder="Enter full path of your working Directory" name="dir">
+      </div>
+
+      <div class="form-group">
+        <label for="inputTitle">Title</label>
+        <input type="text" class="form-control" id="inputTitle" placeholder="Enter Title of your Project" name="title">
+      </div>
+      <div class="form-group">
+        <label for="inputAuthor">Author</label>
+        <input type="text" class="form-control" id="inputAuthor" placeholder="Enter your Name" name="author">
+      </div>
+      <div class="form-group">
+        <label for="inputContent">First Heading </label>
+        <textarea class="form-control" id="inputContent" rows="3" name="head1"></textarea>
+
+      </div>
+
+      <!-- Buttons for Dynamic textfields -->
+    
+      <fieldset>
+        
+        
+        <!-- Elements are added here  -->
+        <div class="dynamic-stuff" id="dynamic-stuff">
+
+        </div>
+        
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-10">
+              <p class="add-one btn btn-dark" onclick="addFields()" >Add more Field</p>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="form-group col-md-4">
+        <label for="inputState">Theme</label>
+        <select id="inputState" class="form-control" name="theme">
+          <option selected>Choose...</option>
+          <option>Copenhagen</option>
+          <option>metropolis</option>
+        </select>
+      </div>
+
+      <input type="text" readonly class="form-control-plaintext" id="counter" name="count" value="1"></input>
+      
+      <button type="submit" class="btn btn-primary">Generate Beamer Presentation</button>
+      <button type="submit" class="btn btn-primary" value="Go Elsewhere" formaction="/plainpdf">Generate Plain PDF</button>
+    </form>
+  </div>
+
+  <!-- Dynamic Form Content-->
+  <div class="second">
+
+
+    <div class="form-group dynamic-element" style="display:none">
+      <div class="row">
+        <div class="col-md-2">
+          <select id="rol[]" name="rol" class="form-control">
+            <option>Heading</option>
+            <option value="1">Subheading</option>
+            <option value="2">Normal Text</option>
+            <option value="3">Figure</option>
+            <option value="4">Maths</option>
+          </select>
+        </div>
+
+        <div class="textfield">
+          <textarea class="form-control" id="inputContent" value="1"></textarea>
+          </select>
+        </div>
+
+        <div class="col-md-1">
+          <button class="delete btn btn-danger">X</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</body>
+
+<script>
+  var textarea = document.querySelector('textarea');
+  console.log(textarea)
+  textarea.addEventListener('keydown', autosize);
+
+  function autosize() {
+    var el = this;
+    setTimeout(function () {
+      el.style.cssText = 'height:auto; padding:0';
+      // for box-sizing other than "content-box" use:
+      // el.style.cssText = '-moz-box-sizing:content-box';
+      el.style.cssText = 'height:' + el.scrollHeight + 'px';
+    }, 0);
+  }
+</script>
+
+<!-- Script for dyamic Form   -->
+
+<!-- <script>
+
+
+// $('.add-one').click(function () {
+//     $('.dynamic-element').first().clone().appendTo('.dynamic-stuff').show();
+//     attach_delete();
+//   });
+  
+  function attach_delete() {
+    $('.delete').off();
+    $('.delete').click(function () {
+      console.log("click");
+      $(this).closest('.form-group').remove();
+    });
+  // }
+</script> -->
+
+</html>
