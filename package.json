@@ -26,7 +26,7 @@
   "dependencies": {
     "express": "^4.13.4",
     "fs": "^0",
-    "shelljs": "^0.8.3"
+    "shelljs": "^0.8.5"
   },
   "devDependencies": {
     "cors": "^2.8.0",
