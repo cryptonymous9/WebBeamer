@@ -24,7 +24,7 @@
     "start": "nodemon server.js"
   },
   "dependencies": {
-    "express": "^4.13.4",
+    "express": "^4.17.3",
     "fs": "^0",
     "shelljs": "^0.8.3"
   },
